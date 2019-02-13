@@ -10,7 +10,7 @@ namespace GeometryLib.Shapes
     /// <summary>
     /// Произвольный треугольник
     /// </summary>
-    public class Triangle : Shape
+    public class Triangle : Shape, IPrintable
     {
         // Длины сторон треугольника
         public double Side1 { get; }
@@ -25,6 +25,16 @@ namespace GeometryLib.Shapes
             Side1 = side1;
             Side2 = side2;
             Side3 = side3;
+        }
+
+        public override string Print()
+        {
+            var side1 = this.Side1;
+            var side2 = this.Side2;
+            var side3 = this.Side3;
+            var p = (side1 + side2 + side3) / 2;
+            var area = Math.Sqrt(p * (p - side1) * (p - side2) * (p - side3));
+            return $"Triangle: sides: {side1} {side2} {side3}, area = {area}";
         }
     }
 }
