@@ -12,7 +12,6 @@ namespace GeometryLib
     {
         public static void Print(Shape shape)
         {
-            double area = 0;
 
             if (shape is Circle)
             {
